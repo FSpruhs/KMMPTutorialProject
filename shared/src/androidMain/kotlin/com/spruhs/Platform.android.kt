@@ -1,9 +1,21 @@
 package com.spruhs
 
 import android.os.Build
+import android.content.res.Resources
+import android.util.Log
+import kotlin.math.round
 
-class AndroidPlatform : Platform {
-    override val name: String = "Android ${Build.VERSION.SDK_INT}"
+actual class Platform() {
+    actual val name: String
+        get() = "Android"
+    actual val osVersion: String
+        get() = "${Build.VERSION.SDK_INT}"
+    actual val deviceModel: String
+        get() = "${Build.MANUFACTURER} ${Build.MODEL}"
+    actual val density: Int
+        get() = round(Resources.getSystem().displayMetrics.density).toInt()
+
+    actual fun logSystemInfo() {
+        Log.d("SystemInfo", "$name $osVersion $deviceModel $density")
+    }
 }
-
-actual fun getPlatform(): Platform = AndroidPlatform()
