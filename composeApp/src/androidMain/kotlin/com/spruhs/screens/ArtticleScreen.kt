@@ -12,7 +12,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -20,11 +19,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.spruhs.articles.Article
 import com.spruhs.articles.ArticlesViewModel
 
@@ -70,6 +71,19 @@ fun ArticleItemView(article: Article) {
         AsyncImage(
             model = article.imageUrl,
             contentDescription = article.title,
+        )
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = article.title,
+            style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp)
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = article.description)
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = article.date,
+            style = TextStyle(color = Color.Gray),
+            modifier = Modifier.align(Alignment.End)
         )
         Spacer(modifier = Modifier.height(4.dp))
     }

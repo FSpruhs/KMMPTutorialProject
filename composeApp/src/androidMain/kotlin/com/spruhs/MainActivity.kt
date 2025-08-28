@@ -4,15 +4,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.spruhs.screens.AboutScreen
+import androidx.activity.viewModels
+import com.spruhs.articles.ArticlesViewModel
+import com.spruhs.screens.ArticleScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        val articlesViewModel: ArticlesViewModel by viewModels()
 
         setContent {
-            AboutScreen()
+            ArticleScreen(articlesViewModel = articlesViewModel)
         }
     }
 }
