@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import com.spruhs.articles.ArticlesViewModel
-import com.spruhs.screens.ArticleScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +14,7 @@ class MainActivity : ComponentActivity() {
         val articlesViewModel: ArticlesViewModel by viewModels()
 
         setContent {
-            ArticleScreen(articlesViewModel = articlesViewModel)
+            AppScaffold(articlesViewModel = articlesViewModel)
         }
     }
 }
