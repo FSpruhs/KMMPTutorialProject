@@ -11,10 +11,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        val articlesViewModel: ArticlesViewModel by viewModels()
 
         setContent {
-            AppScaffold(articlesViewModel = articlesViewModel)
+            AppScaffold()
         }
     }
 }

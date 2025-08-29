@@ -33,6 +33,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(projects.shared)
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.koin.android)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

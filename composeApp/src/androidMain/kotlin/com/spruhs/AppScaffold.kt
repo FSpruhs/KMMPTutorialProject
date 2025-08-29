@@ -15,14 +15,13 @@ import com.spruhs.screens.ArticleScreen
 import com.spruhs.screens.Screen
 
 @Composable
-fun AppScaffold(articlesViewModel: ArticlesViewModel) {
+fun AppScaffold() {
     val navController = rememberNavController()
 
     Scaffold {
         AppNavHost(
             navController = navController,
-            modifier = Modifier.fillMaxSize().padding(it),
-            articlesViewModel
+            modifier = Modifier.fillMaxSize().padding(it)
         )
     }
 }
@@ -31,7 +30,6 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    articlesViewModel: ArticlesViewModel
 ) {
     NavHost(
         navController = navController,
@@ -41,7 +39,6 @@ fun AppNavHost(
         composable(Screen.ARTICLES.route) {
             ArticleScreen(
                 onAboutButtonClick = { navController.navigate(Screen.ABOUT.route) },
-                articlesViewModel
             )
         }
         composable(Screen.ABOUT.route) {
